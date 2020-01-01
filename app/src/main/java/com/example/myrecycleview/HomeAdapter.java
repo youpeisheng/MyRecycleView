@@ -10,9 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> implements View.OnClickListener,View.OnLongClickListener{
+    ArrayList<Integer> mHeights=new ArrayList<Integer>();
     private OnItemClickListener mOnItemClickListener;
     private List<String> mList;
     private Context mContext;
@@ -31,12 +34,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         MyViewHolder holder=new MyViewHolder(view);
         view.setOnClickListener(this);
         view.setOnLongClickListener(this);
+        for (int i=0;i<10;i++){
+            mHeights.add((int)(100+Math.random()*300));
+        }
         return holder;
     }
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.tv.setText(mList.get(position));
+        ViewGroup.LayoutParams lp=holder.tv.getLayoutParams();
+        lp.height=mHeights.get(position);
+        holder.tv.setLayoutParams(lp);
     }
     @Override
     public int getItemCount() {

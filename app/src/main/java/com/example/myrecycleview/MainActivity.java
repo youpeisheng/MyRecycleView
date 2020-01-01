@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView mRecyclerView=(RecyclerView) findViewById(R.id.id_recycleview);
         //设置布局管理器
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL_LIST));
         //设置 item 增加和删除时的动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         homeAdapter=new HomeAdapter(this,mList);
