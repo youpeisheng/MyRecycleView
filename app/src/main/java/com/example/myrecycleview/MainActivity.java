@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         homeAdapter.setOnItemClickListener(new HomeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(getApplicationContext(),"点击第"+position+"条",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"点击第"+position+"条",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onItemLongClick(View view, final int position) {
