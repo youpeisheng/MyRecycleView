@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //设置 item 增加和删除时的动画
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         homeAdapter=new HomeAdapter(this,mList);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
         mRecyclerView.setAdapter(homeAdapter);
     }
     private void init_mList(){
@@ -31,4 +32,5 @@ public class MainActivity extends AppCompatActivity {
             mList.add(Integer.toString(i));
         }
     }
+
 }
